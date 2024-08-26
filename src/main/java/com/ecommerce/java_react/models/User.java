@@ -19,7 +19,7 @@ public class User {
 private Long id;
 
 @Column(name = "admin")
-private Boolean admin;
+private Boolean admin = false;
 
 @Column(name = "first_name")
 private String firstName;
