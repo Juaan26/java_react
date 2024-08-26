@@ -4,10 +4,12 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import com.ecommerce.java_react.models.User;
 import com.ecommerce.java_react.repository.UserRepository;
 
+@Service
 public class UserServiceImp implements UserService {
     
 

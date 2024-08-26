@@ -7,7 +7,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.ecommerce.java_react.service.UserService;
+
+import com.ecommerce.java_react.service.UserServiceImp;
 import com.ecommerce.java_react.models.User;
 
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -21,31 +22,31 @@ import org.springframework.web.bind.annotation.RequestBody;
 public class UserController {
 
     @Autowired
-    private UserService userService;
+    private UserServiceImp userServiceImp;
 
     @GetMapping
     public List<User> getUsers()
     {
 
-        return userService.getAllUsers();
+        return userServiceImp.getAllUsers();
 
     }
     @GetMapping("/{id}")
     public Optional<User> getUser(@PathVariable("id") Long id)
     {
 
-        return userService.getUserById(id);
+        return userServiceImp.getUserById(id);
 
     }
     @PostMapping
     public void createUpdateUser(@RequestBody User user)
     {
-        userService.saveOrUpdateUser(user);
+        userServiceImp.saveOrUpdateUser(user);
     }
     @DeleteMapping("/{id}")
     public void deleteUser(@PathVariable("id") Long id)
     {
-        userService.deleteUser(id);
+        userServiceImp.deleteUser(id);
     }
     
 }
