@@ -6,7 +6,7 @@ import com.ecommerce.java_react.models.Product;
 
 public interface ProductService {
 
-    List<Product> getAllProducts();
+    List<Product> getAllProducts(String keyword);
     Optional<Product> getProductById(Long id);
     void saveOrUpdateProduct(Product product);
     void deleteProduct(Long id);

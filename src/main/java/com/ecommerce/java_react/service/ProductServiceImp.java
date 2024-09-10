@@ -15,7 +15,10 @@ public class ProductServiceImp implements ProductService {
     private ProductRepository productRepository;
 
     @Override
-    public List<Product> getAllProducts() {
+    public List<Product> getAllProducts(String keyword) {
+        if(keyword !=null){
+            return productRepository.findAll(keyword);
+        }
         return productRepository.findAll();
     }
 

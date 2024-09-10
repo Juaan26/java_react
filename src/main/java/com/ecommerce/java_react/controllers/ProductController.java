@@ -26,8 +26,8 @@ public class ProductController {
     @GetMapping
     public List<Product> getProducts()
     {
-
-        return productServiceImp.getAllProducts();
+        String keyword = "Apple";
+        return productServiceImp.getAllProducts(keyword);
 
     }
     @GetMapping("/{id}")
