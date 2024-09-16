@@ -8,7 +8,8 @@ public interface ProductService {
 
     List<Product> getAllProducts(String keyword);
     Optional<Product> getProductById(Long id);
-    void saveOrUpdateProduct(Product product);
+    void saveProduct(Product product);
+    void updateProduct(Long id, Product product);
     void deleteProduct(Long id);
       
     
