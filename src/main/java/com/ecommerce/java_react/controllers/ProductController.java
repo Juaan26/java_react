@@ -1,6 +1,7 @@
 package com.ecommerce.java_react.controllers;
 
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.ecommerce.java_react.models.Product;
@@ -27,9 +28,8 @@ public class ProductController {
     private ProductServiceImp productServiceImp;
 
     @GetMapping
-    public List<Product> getProducts()
+    public List<Product> getProducts(@RequestParam("keyword") String keyword)
     {
-        String keyword = "Apple";
         return productServiceImp.getAllProducts(keyword);
 
     }
