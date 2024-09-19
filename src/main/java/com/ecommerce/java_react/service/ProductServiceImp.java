@@ -1,6 +1,8 @@
 package com.ecommerce.java_react.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import com.ecommerce.java_react.models.Product;
@@ -18,11 +20,11 @@ public class ProductServiceImp implements ProductService {
     private ProductRepository productRepository;
 
     @Override
-    public List<Product> getAllProducts(String keyword) {
-        if(keyword !=null){
-            return productRepository.findAll(keyword);
+    public Page<Product> getAllProducts(String keyword, Pageable pageable) {
+        if (keyword != null && !keyword.isEmpty()) {
+            return productRepository.findByKeyword(keyword, pageable); // Llamada al método personalizado
         }
-        return productRepository.findAll();
+        return productRepository.findAll(pageable); // Si no hay palabra clave, devolver todos los productos
     }
 
     @Override
