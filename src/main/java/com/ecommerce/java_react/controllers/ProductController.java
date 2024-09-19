@@ -28,7 +28,7 @@ public class ProductController {
     private ProductServiceImp productServiceImp;
 
     @GetMapping
-    public List<Product> getProducts(@RequestParam("keyword") String keyword)
+    public List<Product> getProducts(@RequestParam(value = "keyword" ,required = false ) String keyword)
     {
         return productServiceImp.getAllProducts(keyword);
 
